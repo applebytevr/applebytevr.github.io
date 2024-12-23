@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applebyte | Apple Climbers</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="games.js"></script>
+    <link rel="shortcut icon" href="../images/appleclimbers/logo_bg_trans.png" type="image/x-icon">
+
+    <meta property="og:title" content="Applebyte (Games) | Apple Climbers" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://applebytevr.com/games/apple-climbers.html" />
+    <meta property="og:image" content="http://applebytevr/images/appleclimbers/logo_bg_trans.png"/>
+    <meta property="og:description" content="The game page for Apple Climbers!" />
+    <meta name="theme-color" content="#FF1717">
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const moveX = ((e.clientX / window.innerWidth) - 0.5) * 30; /* Moves left and right */
+            const moveY = ((e.clientY / window.innerHeight) - 0.5) * 30; /* Moves up and down */
+            document.body.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
+        });
+
+        let currentScreenshot = 0;
+        const screenshots = [
+            '../images/appleclimbers/1.jpg',
+            '../images/appleclimbers/2.jpg',
+            '../images/appleclimbers/3.jpg',
+            '../images/appleclimbers/4.jpg',
+            '../images/appleclimbers/5.jpg',
+        ];
+
+        function changeScreenshot() {
+            const img = document.getElementById('screenshot');
+
+            setTimeout(() => {
+                img.src = screenshots[currentScreenshot]; // Change image source
+                currentScreenshot = (currentScreenshot + 1) % screenshots.length;
+            }, 500); // Matches animation duration
+        }
+
+        setInterval(changeScreenshot, 3000); // Change screenshot every 3 seconds
+    </script>
+
+<script>
+    async function updateFanArtNames() {
+        try {
+            // Fetch the JSON data
+            const response = await fetch('https://raw.githubusercontent.com/applebytevr/APCData/refs/heads/main/APCFanArt/Info/names.json');
+            const data = await response.json();
+
+            // Map the JSON keys to fanart entries
+            const names = Object.values(data);
+
+            // Select all fanart-name spans and update them
+            const fanartNames = document.querySelectorAll('.fanart-name');
+            fanartNames.forEach((name, index) => {
+                name.textContent = names[index] || 'Unknown'; // Fallback to 'Unknown' if no name is found
+            });
+        } catch (error) {
+            console.error('Error loading fanart names:', error);
+        }
+    }
+
+    // Call the function when the page loads
+    window.onload = updateFanArtNames;
+</script>
+
+    <style>
+        body {
+            background-size: 110%; /* Slightly larger background to avoid black edges */
+            background-repeat: no-repeat;
+            background-position: center center; /* Ensures initial position is centered */
+            font-family: VCR_OSD_MONO, sans-serif;
+        }
+
+        @font-face { 
+            font-family: VCR_OSD_MONO; src: url('../fonts/VCR_OSD_MONO.ttf'); 
+        } 
+
+        @font-face { 
+            font-family: VCR_OSD_MONO; font-weight: bold; src: url('../fonts/VCR_OSD_MONO.ttf');
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .info-panel {
+            flex: 1;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            position: relative; /* Added for positioning the button */
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Add space between logo and button */
+            gap: 10px;
+            margin-bottom: 10px;
+            margin-top: -20px;
+            width: 100%; /* Ensure it spans the full width */
+        }
+
+        .info-panel img.logo {
+            width: 120px; /* Increased size */
+            height: 120px; /* Increased size */
+        }
+
+        .screenshot-container img {
+            width: 800px;
+            height: 250px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .get-button {
+            padding: 10px 20px;
+            background-color: #0081FB;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: auto; /* Pushes button to the right */
+        }
+
+        .get-button:hover {
+            background-color: #005cb3;
+            transition: background-color 0.1s ease;
+        }
+
+        .description {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .fanart-container {
+            flex: 1;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .fanart-title {
+            font-size: 40px; /* Larger font size for title */
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center; /* Centered title */
+        }
+
+        .fanart-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .fanart-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .fanart-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .fanart-name {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <div class="info-header">
+                <img src="../images//appleclimbers/logo_bg_trans.png" alt="Logo" class="logo">
+                <h1>Apple Climbers</h1>
+                <a href="https://www.meta.com/" class="get-button" target="_blank">Get on Meta</a>
+            </div>
+            <div class="screenshot-container">
+                <img id="screenshot" src="../images/appleclimbers/1.jpg" alt="Screenshot">
+            </div>
+            <div class="description">
+                Apple Climbers is a fun and challenging VR climbing game where you navigate various obstacles and compete for the highest scores. Explore different levels and customize your experience!
+            </div>
+        </div>
+
+        <!-- Fan Art Section -->
+        <div class="fanart-container">
+            <div class="fanart-title">Current Fan Art In-Game</div>
+            <div class="fanart-grid">
+                <div class="fanart-item">
+                    <img src="https://raw.githubusercontent.com/applebytevr/APCData/main/APCFanArt/FanArt1.png" class="fanart-image">
+                    <span class="fanart-name">Moonist</span>
+                </div>
+                <div class="fanart-item">
+                    <img src="https://raw.githubusercontent.com/applebytevr/APCData/main/APCFanArt/FanArt2.png" class="fanart-image">
+                    <span class="fanart-name">Moonist</span>
+                </div>
+                <div class="fanart-item">
+                    <img src="https://raw.githubusercontent.com/applebytevr/APCData/main/APCFanArt/FanArt3.png" class="fanart-image">
+                    <span class="fanart-name">Moonist</span>
+                </div>
+                <div class="fanart-item">
+                    <img src="https://raw.githubusercontent.com/applebytevr/APCData/main/APCFanArt/FanArt4.png" class="fanart-image">
+                    <span class="fanart-name">Moonist</span>
+                </div>
+                <div class="fanart-item">
+                    <img src="https://raw.githubusercontent.com/applebytevr/APCData/main/APCFanArt/FanArt5.png" class="fanart-image">
+                    <span class="fanart-name">Moonist</span>
+                </div>
+                <div class="fanart-item">
+                    <img src="https://raw.githubusercontent.com/applebytevr/APCData/main/APCFanArt/FanArt6.png" class="fanart-image">
+                    <span class="fanart-name">Moonist</span>
+                </div>
+                <div class="fanart-item">
+                    <img src="https://raw.githubusercontent.com/applebytevr/APCData/main/APCFanArt/FanArt7.png" class="fanart-image">
+                    <span class="fanart-name">Moonist</span>
+                </div>
+                <div class="fanart-item">
+                    <img src="https://raw.githubusercontent.com/applebytevr/APCData/main/APCFanArt/FanArt8.png" class="fanart-image">
+                    <span class="fanart-name">Moonist</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

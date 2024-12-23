@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applebyte | Socials</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/applebytelogo.png" type="image/x-icon">
+
+    <meta property="og:title" content="Applebyte | Socials" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://applebytevr.com/socials.html" />
+    <meta property="og:image" content="http://applebytevr/images/applefulllogo"/>
+    <meta property="og:description" content="The socials page for Applebyte!" />
+    <meta name="theme-color" content="#FF1717">
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const moveX = ((e.clientX / window.innerWidth) - 0.5) * 30; /* Moves left and right */
+            const moveY = ((e.clientY / window.innerHeight) - 0.5) * 30; /* Moves up and down */
+            document.body.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
+        });
+    </script>
+    <style>
+        body {
+            background-size: 110%; /* Slightly larger background to avoid black edges */
+            background-repeat: no-repeat;
+            background-position: center center; /* Ensures initial position is centered */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Socials</h1>
+        </div>
+        <div class="navbar">
+            <a href="https://www.youtube.com/@applebytevr" class="nav-button" id="yt" target="_blank">YouTube</a>
+            <a href="https://www.tiktok.com/@appleclimbers" class="nav-button" id="tiktok" target="_blank">TikTok</a>
+            <a href="https://x.com/AppleClimbers" class="nav-button" id="twitter" target="_blank">Twitter</a>
+            <a href="https://discord.gg/appleclimbers" class="nav-button" id="discord" target="_blank">Discord</a>
+        </div>
+    </div>
+</body>
+</html>

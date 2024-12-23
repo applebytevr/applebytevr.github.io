@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applebyte | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/applebytelogo.png" type="image/x-icon">
+
+    <meta property="og:title" content="Applebyte | Home" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://applebytevr.com" />
+    <meta property="og:image" content="http://applebytevr/images/applefulllogo.png"/>
+    <meta property="og:description" content="The home page for Applebyte!" />
+    <meta name="theme-color" content="#FF1717">
+    
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const moveX = ((e.clientX / window.innerWidth) - 0.5) * 30; /* Moves left and right */
+            const moveY = ((e.clientY / window.innerHeight) - 0.5) * 30; /* Moves up and down */
+            document.body.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
+        });
+    </script>
+    <style>
+        body {
+            background-size: 110%; /* Slightly larger background to avoid black edges */
+            background-repeat: no-repeat;
+            background-position: center center; /* Ensures initial position is centered */
+        }
+
+        .logo img {
+            transition: transform 0.1s ease; /* Smooth zoom effect */
+        }
+
+        .logo img:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="images/applefulllogo.png" alt="Logo">
+        </div>
+        <div class="navbar">
+            <a href="games.html" class="nav-button">Games</a>
+            <a href="#" class="nav-button">About</a>
+            <a href="socials.html" class="nav-button">Socials</a>
+            <a href="contact.html" class="nav-button">Contact</a>
+            <a href="privacy-policy.html" class="nav-button">Privacy Policy</a>
+        </div>
+    </div>
+</body>
+</html>
