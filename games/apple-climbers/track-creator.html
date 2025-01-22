@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>APC Custom Track Creator</title>
+        <link rel="stylesheet" href="./style.css">
+    
+        <!-- Load dependencies -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+    
+        <!-- Load your script last -->
+        <script defer src="./script.js"></script>
+    </head>    
+<body>
+    <div class="container">
+        <h1>APC Custom Track Creator</h1>
+        <div id="trackList">
+            <!-- Initial Track Form -->
+            <div class="track-form">
+                <div class="cover-container">
+                    <input type="file" class="coverImage hidden" accept="image/*">
+                    <button type="button" class="coverUploadBtn">+</button>
+                    <img class="coverPreview" src="" alt="" style="display: none;">
+                </div>
+
+                <label>Name</label>
+                <input type="text" class="songName">
+
+                <label>Artist</label>
+                <input type="text" class="artist">
+
+                <label>Album Name</label>
+                <input type="text" class="albumName">
+
+                <label>Album Year</label>
+                <input type="number" class="albumYear">
+
+                <label>Genre</label>
+                <input type="text" class="genre">
+
+                <div class="audio-container">
+                    <button type="button" class="addAudioBtn">+ Add Audio</button>
+                    <input type="file" class="audioFile hidden" accept="audio/*">
+                </div>
+                <audio class="audioPreview" controls style="display: none;"></audio>
+            </div>
+        </div>
+
+        <button id="addTrack">+ Add Track</button>
+        <button id="downloadAll">Download All Tracks</button>
+    </div>
+</body>
+</html>
